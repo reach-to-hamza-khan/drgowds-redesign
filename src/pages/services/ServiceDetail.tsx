@@ -1,6 +1,11 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ChevronRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import DentalImplantsPage from './DentalImplantsPage';
+import InvisalignersPage from './InvisalignersPage';
+import FullMouthRehabPage from './FullMouthRehabPage';
+import RootCanalPage from './RootCanalPage';
+import DrMSGowdPage from '../doctors/DrMSGowdPage';
 
 const serviceData: Record<string, any> = {
     'dental-implants': {
@@ -38,6 +43,22 @@ const ServiceDetail = () => {
     const service = serviceData[id || ''];
 
     if (!service) return <div className="pt-32 text-center font-bold">Service not found.</div>;
+
+    if (id === 'dental-implants') {
+        return <DentalImplantsPage />;
+    }
+    if (id === 'invisaligners') {
+        return <InvisalignersPage />;
+    }
+    if (id === 'full-mouth-rehabilitation') {
+        return <FullMouthRehabPage />;
+    }
+    if (id === 'root-canal') {
+        return <RootCanalPage />;
+    }
+    if (id === 'dr-ms-gowd') {
+        return <DrMSGowdPage />;
+    }
 
     return (
         <div className="pt-24 min-h-screen bg-gray-50">

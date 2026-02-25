@@ -1,6 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Award, BookOpen, Clock } from 'lucide-react';
+import DrMSGowdPage from './DrMSGowdPage';
+import DrSnigdhaGowdPage from './DrSnigdhaGowdPage';
+import DrTShankarPage from './DrTShankarPage';
 
 const doctorData: Record<string, any> = {
     'dr-ms-gowd': {
@@ -37,6 +40,16 @@ const DoctorDetail = () => {
     const doctor = doctorData[id || ''];
 
     if (!doctor) return <div className="pt-32 text-center font-bold">Doctor not found.</div>;
+
+    if (id === 'dr-ms-gowd') {
+        return <DrMSGowdPage />;
+    }
+    if (id === 'dr-snigdha-gowd') {
+        return <DrSnigdhaGowdPage />;
+    }
+    if (id === 'dr-t-shankar') {
+        return <DrTShankarPage />;
+    }
 
     return (
         <div className="pt-24 min-h-screen bg-gray-50 pb-20">
