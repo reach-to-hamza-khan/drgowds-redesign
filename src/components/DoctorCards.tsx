@@ -29,7 +29,7 @@ const doctors = [
 const DoctorCards = () => {
     const { openModal } = useBooking();
     return (
-        <section className="py-24 bg-[#fffdf5]">
+        <section id="our-doctors" className="py-24 bg-[#fffdf5]">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-16">
                     <p className="text-medical-pink font-bold uppercase tracking-[0.3em] text-xs mb-4">Our Specialists</p>

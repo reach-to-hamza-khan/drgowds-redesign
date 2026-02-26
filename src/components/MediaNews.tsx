@@ -29,7 +29,7 @@ const mediaFeatures = [
 
 const MediaNews = () => {
     return (
-        <section className="py-24 bg-gray-50 overflow-hidden">
+        <section id="news" className="py-24 bg-gray-50 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 <p className="text-medical-pink font-bold uppercase tracking-[0.3em] text-xs mb-4">Global Recognition</p>
                 <h2 className="text-4xl md:text-6xl font-black text-medical-purple leading-tight mb-16 italic">

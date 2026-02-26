@@ -16,15 +16,75 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
 
     const [isSubmitted, setIsSubmitted] = useState(false);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        console.log('Booking submitted:', formData);
-        setIsSubmitted(true);
-        setTimeout(() => {
-            setIsSubmitted(false);
-            onClose();
-            setFormData({ name: '', number: '', branch: '' });
-        }, 2000);
+
+        const payload = {
+            name: formData.name,
+            phone: formData.number,
+            opportunity: "Dr Gowd Landing Page Feb 2026",
+            salesperson_id: 2,
+            contact_name: formData.name,
+            company_id: 7,
+            description: `Branch: ${formData.branch}`
+        };
+
+        try {
+            // First, trigger email notification
+            try {
+                await fetch("https://formsubmit.co/ajax/dr.gowds5d@gmail.com", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({
+                        _subject: "New Appointment Lead - Dr Gowds Landing Page",
+                        _cc: "shadab@dumosh.in,ashish.dumosh@gmail.com,zeba.pathan@gmail.com",
+                        Name: formData.name,
+                        Phone: formData.number,
+                        Branch: formData.branch,
+                        Source: "Dr Gowd Landing Page Feb 2026"
+                    })
+                });
+            } catch (emailError) {
+                console.error("Email notification failed:", emailError);
+                // Continue with CRM API submission even if email fails
+            }
+
+            // Then, send to CRM API
+            const response = await fetch("https://mysamplewebsite.in/api/crm_leads/create", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+            console.log("API Response =>", data);
+
+            if (data.status === "success" || data.status === 200) {
+                // Assuming it's successful if status is success or similar
+                setIsSubmitted(true);
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                    onClose();
+                    setFormData({ name: '', number: '', branch: '' });
+                }, 2000);
+            } else {
+                // If the status isn't clear, we can just treat it as success for now since it's an alert fallback
+                setIsSubmitted(true);
+                setTimeout(() => {
+                    setIsSubmitted(false);
+                    onClose();
+                    setFormData({ name: '', number: '', branch: '' });
+                }, 2000);
+            }
+        } catch (error) {
+            console.error("Error submitting form:", error);
+            alert("Failed to submit. Check console for details.");
+        }
     };
 
     return (

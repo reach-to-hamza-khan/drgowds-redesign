@@ -25,7 +25,14 @@ const navigation = [
             { name: "Root Canal", href: "/services/root-canal" }
         ]
     },
-    { name: "More", href: "#more" }
+    {
+        name: "News",
+        href: "#news"
+    },
+    {
+        name: "Contact Us",
+        href: "#contact"
+    }
 ];
 
 const Navbar = () => {
@@ -53,6 +60,15 @@ const Navbar = () => {
                             >
                                 <Link
                                     to={item.href}
+                                    onClick={(e) => {
+                                        if (item.href.startsWith('#')) {
+                                            const element = document.getElementById(item.href.substring(1));
+                                            if (element) {
+                                                e.preventDefault();
+                                                element.scrollIntoView({ behavior: 'smooth' });
+                                            }
+                                        }
+                                    }}
                                     className="flex items-center text-gray-700 hover:text-medical-pink font-bold text-sm uppercase tracking-wider transition-all"
                                 >
                                     {item.name}
@@ -88,7 +104,7 @@ const Navbar = () => {
                     <div className="hidden lg:flex items-center space-x-6">
                         <div className="flex flex-col items-end">
                             <span className="text-[10px] uppercase font-bold text-gray-400">Call Support</span>
-                            <a href="tel:+918599448599" className="text-medical-purple font-black text-lg">+91 85994 48599</a>
+                            <a href="tel:9156060489" className="text-medical-purple font-black text-lg">9156060489</a>
                         </div>
                         <button
                             onClick={openModal}
@@ -124,7 +140,16 @@ const Navbar = () => {
                                 <div key={item.name} className="space-y-4">
                                     <Link
                                         to={item.href}
-                                        onClick={() => !item.dropdown && setIsOpen(false)}
+                                        onClick={(e) => {
+                                            if (item.href.startsWith('#')) {
+                                                const element = document.getElementById(item.href.substring(1));
+                                                if (element) {
+                                                    e.preventDefault();
+                                                    element.scrollIntoView({ behavior: 'smooth' });
+                                                }
+                                            }
+                                            if (!item.dropdown) setIsOpen(false);
+                                        }}
                                         className="block text-xl font-black text-medical-purple"
                                     >
                                         {item.name}

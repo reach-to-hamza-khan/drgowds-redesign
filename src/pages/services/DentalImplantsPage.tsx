@@ -1,8 +1,5 @@
-import { CheckCircle, CheckCircle2 } from 'lucide-react';
-import WhatsAppIcon from '../../components/WhatsAppIcon';
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
-import { useBooking } from '../../context/BookingContext';
+import { useEffect, useState } from 'react';
 import ComparisonTable from '../../components/ComparisonTable';
 import DoctorCards from '../../components/DoctorCards';
 import Branches from '../../components/Branches';
@@ -11,10 +8,10 @@ import Timeline from '../../components/Timeline';
 import MediaNews from '../../components/MediaNews';
 import QuickForm from '../../components/QuickForm';
 import FAQ from '../../components/FAQ';
-
+import Hero from '../../components/Hero';
+import { dentalImplantFAQs } from '../../data/faqs';
 const DentalImplantsPage = () => {
-    const { openModal } = useBooking();
-    // Scroll to top on mount
+    const [activeImage, setActiveImage] = useState("/images/What Are Implants.jpg");
     // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -23,87 +20,7 @@ const DentalImplantsPage = () => {
     return (
         <div className="min-h-screen bg-white">
             {/* HERO SECTION */}
-            <section className="pt-32 pb-16 bg-gradient-to-br from-white to-pink-50">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-2 gap-12 items-center">
-                        {/* Text Content */}
-                        <div className="space-y-6">
-                            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-medical-pink leading-tight">
-                                Best <span className="text-medical-purple italic">Dental Implants</span> Doctors in Hyderabad!
-                            </h1>
-
-                            <div className="flex gap-6 items-start">
-                                <div className="hidden sm:flex self-start mt-2">
-                                    {/* Mocking the tooth layout from the design */}
-                                    <div className="bg-white p-4 rounded-3xl shadow-xl border-2 border-pink-100 flex items-center justify-center relative">
-                                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-medical-pink">
-                                            <path d="M12 21c-1.33 0-2.61-.314-3.52-1.012-.897-.687-1.48-1.748-1.48-3.138v-3.793l-1.928.964A2 2 0 0 1 2.293 13.13l.056-.112a10 10 0 0 1 1.258-2.673c1.196-1.84 2.846-3.082 4.606-3.693 1.056-.367 2.05-.28 2.825.106.772-.387 1.765-.473 2.825-.106 1.76.611 3.41 1.853 4.605 3.693a10 10 0 0 1 1.259 2.673l.056.113a2 2 0 0 1-2.78 2.891l-1.927-.964v3.793c0 1.39-.583 2.451-1.48 3.138C14.61 20.686 13.33 21 12 21Z" />
-                                            <path d="M12 21v-4" />
-                                            <path d="M7 14v4" />
-                                            <path d="M17 14v4" />
-                                        </svg>
-                                        <div className="absolute -top-3 -right-3 bg-yellow-400 p-1 rounded-full shadow-md">
-                                            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" /></svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="space-y-4 pt-2">
-                                    <div className="flex items-center space-x-3">
-                                        <CheckCircle className="text-medical-purple w-5 h-5" />
-                                        <span className="text-gray-700 font-bold text-sm uppercase tracking-wider">20+ Years Of Clinical Excellence</span>
-                                    </div>
-                                    <div className="flex items-center space-x-3">
-                                        <CheckCircle className="text-medical-purple w-5 h-5" />
-                                        <span className="text-gray-700 font-bold text-sm uppercase tracking-wider">Pioneers In Dental Implants</span>
-                                    </div>
-                                    <div className="flex items-center space-x-3">
-                                        <CheckCircle className="text-medical-purple w-5 h-5" />
-                                        <span className="text-gray-700 font-bold text-sm uppercase tracking-wider">10K+ Successful Implant Cases</span>
-                                    </div>
-                                    <div className="flex items-center space-x-3">
-                                        <CheckCircle className="text-medical-purple w-5 h-5" />
-                                        <span className="text-gray-700 font-bold text-sm uppercase tracking-wider">Lifetime Implant Warranty</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className="flex flex-wrap gap-4 pt-6">
-                                <button
-                                    onClick={openModal}
-                                    className="bg-pink-purple-gradient text-white px-8 py-4 rounded-full font-black uppercase tracking-widest shadow-xl hover:shadow-pink-500/30 hover:-translate-y-1 transition-all"
-                                >
-                                    Book Free Appointment
-                                </button>
-                                <a
-                                    href="https://wa.me/918065295050"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="bg-green-500 border-2 border-green-500 text-white p-3 rounded-full shadow-xl hover:bg-green-600 transition-all flex items-center justify-center w-14 h-14"
-                                >
-                                    <WhatsAppIcon size={32} />
-                                </a>
-                            </div>
-                        </div>
-
-                        {/* Image Content */}
-                        <div className="relative">
-                            <div className="rounded-[40px] overflow-hidden shadow-2xl border-4 border-white bg-white p-2">
-                                <img
-                                    src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800"
-                                    alt="Dental Implant Team"
-                                    className="w-full h-[400px] object-cover rounded-[30px]"
-                                />
-                            </div>
-                            <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-2xl border-4 border-white shadow-2xl overflow-hidden hidden lg:block">
-                                <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=300" alt="Clinic Interior" className="w-full h-full object-cover" />
-                            </div>
-                            <div className="absolute top-10 -right-8 w-32 h-32 rounded-full border-4 border-white shadow-2xl overflow-hidden hidden lg:block bg-white p-2">
-                                <img src="https://images.unsplash.com/photo-1593054941142-554b17f3d676?auto=format&fit=crop&q=80&w=200" alt="Dental Care" className="w-full h-full object-cover rounded-full" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <Hero title={<>Best <span className="text-medical-pink">Dental Implants</span> Doctors in Hyderabad!</>} />
 
             {/* COMPARISON TABLE */}
             <ComparisonTable />
@@ -123,44 +40,80 @@ const DentalImplantsPage = () => {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-16 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="space-y-6"
-                        >
-                            <div className="flex items-center space-x-4 bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                                <div className="bg-white p-2 rounded-full shadow-sm text-medical-pink">
-                                    <CheckCircle2 size={32} />
-                                </div>
-                                <span className="text-xl font-bold text-gray-700">No Food Restrictions</span>
-                            </div>
-                            <div className="flex items-center space-x-4 bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                                <div className="bg-white p-2 rounded-full shadow-sm text-medical-pink">
-                                    <CheckCircle2 size={32} />
-                                </div>
-                                <span className="text-xl font-bold text-gray-700">No Slip, Slide Or Fall Out</span>
-                            </div>
-                            <div className="flex items-center space-x-4 bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                                <div className="bg-white p-2 rounded-full shadow-sm text-medical-pink">
-                                    <CheckCircle2 size={32} />
-                                </div>
-                                <span className="text-xl font-bold text-gray-700">Protects Jawbone From Shrinking</span>
-                            </div>
-                        </motion.div>
+                        <div className="space-y-4">
+                            {[
+                                {
+                                    id: 1,
+                                    title: "What Are Implants?",
+                                    description: "Dental implants are titanium posts replacing roots, supporting crowns, bridges, or dentures effectively.",
+                                    image: "/images/What Are Implants.jpg"
+                                },
+                                {
+                                    id: 2,
+                                    title: "Why Dental Implants?",
+                                    description: "Dental implants are durable, natural-looking, and prevent bone loss, offering lifetime stability and confident functionality.",
+                                    image: "/images/Why Dental Implants.jpg"
+                                },
+                                {
+                                    id: 3,
+                                    title: "Types of Dental Implants",
+                                    description: "Single, multiple, or All-on-4 implants restore missing teeth with customized, efficient, and durable dental solutions.",
+                                    image: "/images/Types of Dental Implants.jpg"
+                                }
+                            ].map((tab, idx) => (
+                                <motion.div
+                                    key={tab.id}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    className="group relative"
+                                    onMouseEnter={() => setActiveImage(tab.image)}
+                                >
+                                    <div className="flex flex-col bg-gray-50 p-6 rounded-[30px] border border-gray-100 shadow-sm hover:shadow-xl hover:bg-white hover:border-medical-pink/30 transition-all duration-500 cursor-pointer overflow-hidden">
+                                        <div className="flex items-center space-x-4 mb-2">
+                                            <div className="bg-white p-3 rounded-2xl shadow-sm text-medical-pink group-hover:bg-medical-pink group-hover:text-white transition-colors duration-500">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21c-1.33 0-2.61-.314-3.52-1.012-.897-.687-1.48-1.748-1.48-3.138v-3.793l-1.928.964A2 2 0 0 1 2.293 13.13l.056-.112a10 10 0 0 1 1.258-2.673c1.196-1.84 2.846-3.082 4.606-3.693 1.056-.367 2.05-.28 2.825.106.772-.387 1.765-.473 2.825-.106 1.76.611 3.41 1.853 4.605 3.693a10 10 0 0 1 1.259 2.673l.056.113a2 2 0 0 1-2.78 2.891l-1.927-.964v3.793c0 1.39-.583 2.451-1.48 3.138C14.61 20.686 13.33 21 12 21Z" /><path d="M12 21v-4" /><path d="M7 14v4" /><path d="M17 14v4" /></svg>
+                                            </div>
+                                            <span className="text-xl font-black text-medical-purple transition-colors duration-500">{tab.title}</span>
+                                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white bg-gray-100"
-                        >
-                            <img
-                                src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800"
-                                alt="Dental Implant Model"
-                                className="w-full h-[400px] object-cover"
-                            />
-                        </motion.div>
+                                        <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-in-out">
+                                            <div className="overflow-hidden">
+                                                <p className="text-gray-600 font-medium leading-relaxed pt-2 pl-14">
+                                                    {tab.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        <div className="relative group">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white bg-gray-100 h-[500px]"
+                            >
+                                <img
+                                    src={activeImage}
+                                    alt="Dental Implant Anatomy"
+                                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                                />
+
+                                <div className="absolute inset-0 bg-gradient-to-t from-medical-purple/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                <div className="absolute bottom-8 left-8 right-8 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                                    <p className="text-lg font-bold italic">Advanced Implants Care</p>
+                                    <p className="text-sm font-medium text-white/80">Restoring smiles and confidence with precision.</p>
+                                </div>
+                            </motion.div>
+
+                            {/* Floating elements for premium look */}
+                            <div className="absolute -top-6 -right-6 w-24 h-24 bg-medical-pink/10 rounded-full blur-2xl -z-10 group-hover:bg-medical-pink/20 transition-all"></div>
+                            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-medical-purple/10 rounded-full blur-3xl -z-10 group-hover:bg-medical-purple/20 transition-all"></div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -197,7 +150,7 @@ const DentalImplantsPage = () => {
             <Timeline />
             <MediaNews />
             <QuickForm />
-            <FAQ />
+            <FAQ faqs={dentalImplantFAQs} />
         </div>
     );
 };

@@ -55,7 +55,7 @@ const DrTShankarPage = () => {
                                     Book Appointment
                                 </button>
                                 <a
-                                    href="https://wa.me/918065295050"
+                                    href="https://wa.me/9156060489"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center w-12 h-12"
@@ -283,11 +283,27 @@ const DrTShankarPage = () => {
             {/* FOOTER INFO (Inline structure as in screenshot) */}
             <div className="border-t border-gray-200 py-12 bg-white">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="grid md:grid-cols-3 gap-8 text-center md:text-left">
-                        {/* Leaving this blank since screenshot cuts off to only show the address slightly */}
-                        <div className="md:col-start-3 md:col-end-4 space-y-2 text-sm text-gray-500 flex flex-col items-center md:items-start justify-center text-left">
-                            <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Puppalaguda</p>
-                            <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Koti</p>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <div>
+                            <p className="text-sm text-gray-500 font-medium max-w-xs">
+                                If you are in need of high-quality, professional and friendly dental care, look no further than our clinic.
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-gray-800 mb-4">Contact Info</h4>
+                            <div className="space-y-2">
+                                <a href="tel:9156060489" className="text-sm text-gray-500 flex items-center gap-2 hover:text-medical-pink transition-colors">📞 9156060489</a>
+                                <a href="mailto:dr.gowds15di@gmail.com" className="text-sm text-gray-500 flex items-center gap-2 hover:text-medical-pink transition-colors">✉️ dr.gowds15di@gmail.com</a>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 className="font-bold text-gray-800 mb-4">Our Branches</h4>
+                            <div className="space-y-2 text-sm text-gray-500">
+                                <a href="https://maps.app.goo.gl/BAzvLKa55TmVRj3t7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-medical-pink transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Gachibowli</a>
+                                <a href="https://maps.app.goo.gl/8Nw2ZhmcWRfTXh4w9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-medical-pink transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Madhapur</a>
+                                <a href="https://maps.app.goo.gl/cY5hUhcqjAunqJgXA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-medical-pink transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Puppalaguda</a>
+                                <a href="https://maps.app.goo.gl/awBnPCdRHewwbsTZ7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-medical-pink transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Koti</a>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -55,7 +55,7 @@ const DrMSGowdPage = () => {
                                     Book Appointment
                                 </button>
                                 <a
-                                    href="https://wa.me/918065295050"
+                                    href="https://wa.me/9156060489"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center w-12 h-12"
@@ -316,7 +316,7 @@ const DrMSGowdPage = () => {
                         <div className="space-y-4">
                             <div className="flex items-center space-x-3 text-white">
                                 <a
-                                    href="https://wa.me/918065295050"
+                                    href="https://wa.me/9156060489"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="bg-white/10 p-2 rounded-full hover:bg-white/20 transition-colors"
@@ -353,17 +353,17 @@ const DrMSGowdPage = () => {
                         <div>
                             <h4 className="font-bold text-gray-800 mb-4">Contact Info</h4>
                             <div className="space-y-2">
-                                <p className="text-sm text-gray-500 flex items-center gap-2">📞 08069295060</p>
-                                <p className="text-sm text-gray-500 flex items-center gap-2">✉️ dr.gowds15di@gmail.com</p>
+                                <a href="tel:9156060489" className="text-sm text-gray-500 flex items-center gap-2 hover:text-medical-pink transition-colors">📞 9156060489</a>
+                                <a href="mailto:dr.gowds15di@gmail.com" className="text-sm text-gray-500 flex items-center gap-2 hover:text-medical-pink transition-colors">✉️ dr.gowds15di@gmail.com</a>
                             </div>
                         </div>
                         <div>
                             <h4 className="font-bold text-gray-800 mb-4">Our Branches</h4>
                             <div className="space-y-2 text-sm text-gray-500">
-                                <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Gachibowli</p>
-                                <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Madhapur</p>
-                                <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Puppalaguda</p>
-                                <p className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Koti</p>
+                                <a href="https://maps.app.goo.gl/BAzvLKa55TmVRj3t7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-medical-pink transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Gachibowli</a>
+                                <a href="https://maps.app.goo.gl/8Nw2ZhmcWRfTXh4w9" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-medical-pink transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Madhapur</a>
+                                <a href="https://maps.app.goo.gl/cY5hUhcqjAunqJgXA" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-medical-pink transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Puppalaguda</a>
+                                <a href="https://maps.app.goo.gl/awBnPCdRHewwbsTZ7" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-medical-pink transition-colors"><span className="w-1.5 h-1.5 rounded-full bg-medical-pink"></span> Koti</a>
                             </div>
                         </div>
                     </div>

@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import WhatsAppIcon from './components/WhatsAppIcon';
@@ -9,6 +10,22 @@ import ServiceDetail from './pages/services/ServiceDetail';
 import DoctorDetail from './pages/doctors/DoctorDetail';
 
 function App() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      setTimeout(() => {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
   return (
     <div className="min-h-screen bg-white selection:bg-medical-pink selection:text-white">
       <Navbar />
@@ -25,7 +42,7 @@ function App() {
 
       {/* Floating WhatsApp Button */}
       <a
-        href="https://wa.me/918065295050"
+        href="https://wa.me/9156060489"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-[60] bg-medical-green text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-transform active:scale-95 flex items-center justify-center group"

@@ -1,36 +1,43 @@
 import { CheckCircle } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 import { useBooking } from '../context/BookingContext';
+import type { ReactNode } from 'react';
 
-const Hero = () => {
+interface HeroProps {
+    title?: ReactNode;
+}
+
+const Hero = ({ title }: HeroProps) => {
     const { openModal } = useBooking();
     return (
         <section className="py-24 bg-gradient-to-br from-white to-pink-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Text Content */}
                     <div className="space-y-6">
-                        <p className="text-medical-pink font-bold uppercase tracking-[0.3em] text-xs mb-[-1rem]">Welcome to Dr. Gowd's</p>
+                        <p className="text-medical-pink font-bold uppercase tracking-[0.3em] text-xs mb-[-1rem] pb-4">Welcome to Dr. Gowd's</p>
                         <h1 className="text-4xl md:text-6xl font-black text-medical-purple leading-tight italic">
-                            Best Dental <span className="text-medical-pink">Doctors in</span> Hyderabad!
+                            {title || (
+                                <>Best Dental <span className="text-medical-pink">Doctors in</span> Hyderabad!</>
+                            )}
                         </h1>
 
                         <div className="space-y-4">
                             <div className="flex items-center space-x-3">
                                 <CheckCircle className="text-medical-purple w-5 h-5" />
-                                <span className="text-gray-700 font-medium font-semibold italic">125+ Years of combined experience</span>
+                                <span className="text-gray-700 font-medium font-semibold italic">55+ Years of combined experience</span>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <CheckCircle className="text-medical-purple w-5 h-5" />
-                                <span className="text-gray-700 font-medium font-semibold italic">5 Millions + Smiles delivered</span>
+                                <span className="text-gray-700 font-medium font-semibold italic">1.5 Millions + Smiles delivered</span>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <CheckCircle className="text-medical-purple w-5 h-5" />
-                                <span className="text-gray-700 font-medium font-semibold italic">200+ Professional Dental Doctors</span>
+                                <span className="text-gray-700 font-medium font-semibold italic">20+ Professional Dental Doctors</span>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <CheckCircle className="text-medical-purple w-5 h-5" />
-                                <span className="text-gray-700 font-medium font-semibold italic">15+ Advanced Dental Hospitals</span>
+                                <span className="text-gray-700 font-medium font-semibold italic">5+ Advanced Dental Hospitals</span>
                             </div>
                         </div>
 
@@ -42,7 +49,7 @@ const Hero = () => {
                                 Book Appointment!
                             </button>
                             <a
-                                href="https://wa.me/918065295050"
+                                href="https://wa.me/9156060489"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-medical-green text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all"

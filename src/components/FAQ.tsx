@@ -1,14 +1,23 @@
-import { ChevronRight } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 
-const faqs = [
-    "Which dental clinic is best in Hyderabad?",
-    "What is the cost of dental implants at Dr. Gowds?",
-    "Which doctor is best for invisalign in hyderabad?",
-    "Does Dr.Gowds Dental Clinic provide free consultation?",
-    "How long dental implants treatment procedure takes?"
-];
+interface FAQItem {
+    id: number;
+    question: string;
+    answer: string;
+}
 
-const FAQ = () => {
+interface FAQProps {
+    faqs: FAQItem[];
+}
+
+const FAQ = ({ faqs }: FAQProps) => {
+    const [openId, setOpenId] = useState<number | null>(null);
+
+    const toggleFaq = (id: number) => {
+        setOpenId(openId === id ? null : id);
+    };
+
     return (
         <section className="py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,10 +29,29 @@ const FAQ = () => {
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
-                    {faqs.map((q, i) => (
-                        <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 flex items-center justify-between cursor-pointer hover:shadow-md transition-shadow">
-                            <span className="font-bold text-gray-700">{q}</span>
-                            <ChevronRight className="text-medical-pink" />
+                    {faqs.map((faq) => (
+                        <div
+                            key={faq.id}
+                            onClick={() => toggleFaq(faq.id)}
+                            className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 cursor-pointer hover:shadow-md transition-shadow relative overflow-hidden"
+                        >
+                            <div className="flex items-center justify-between">
+                                <span className="font-bold text-gray-700 pr-8">{faq.question}</span>
+                                {openId === faq.id ? (
+                                    <ChevronDown className="text-medical-pink flex-shrink-0" />
+                                ) : (
+                                    <ChevronRight className="text-medical-pink flex-shrink-0" />
+                                )}
+                            </div>
+                            <div
+                                className={`grid transition-all duration-300 ease-in-out ${openId === faq.id ? 'grid-rows-[1fr] opacity-100 mt-4' : 'grid-rows-[0fr] opacity-0'}`}
+                            >
+                                <div className="overflow-hidden">
+                                    <p className="text-gray-600 font-medium leading-relaxed">
+                                        {faq.answer}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     ))}
                 </div>

@@ -9,6 +9,7 @@ import Timeline from '../components/Timeline';
 import MediaNews from '../components/MediaNews';
 import QuickForm from '../components/QuickForm';
 import FAQ from '../components/FAQ';
+import { dentalFAQs } from '../data/faqs';
 
 const HomePage = () => {
     return (
@@ -23,7 +24,7 @@ const HomePage = () => {
             <Timeline />
             <MediaNews />
             <QuickForm />
-            <FAQ />
+            <FAQ faqs={dentalFAQs} />
         </>
     );
 };

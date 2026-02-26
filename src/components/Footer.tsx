@@ -1,6 +1,6 @@
-import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
-import WhatsAppIcon from './WhatsAppIcon';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     const { openModal } = useBooking();
@@ -16,8 +16,8 @@ const Footer = () => {
                         <p className="text-sm text-gray-400 leading-relaxed font-medium">
                             Over 50 years of clinical excellence in dental care. Providing world-class treatments with advanced technology.
                         </p>
-                        <div className="flex space-x-4">
-                            <a href="https://wa.me/918065295050" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
+                        {/* <div className="flex space-x-4">
+                            <a href="https://wa.me/9156060489" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
                                 <WhatsAppIcon size={18} />
                             </a>
                             <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
@@ -32,7 +32,7 @@ const Footer = () => {
                             <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
                                 <Youtube size={18} />
                             </div>
-                        </div>
+                        </div> */}
                     </div>
 
                     {/* Contact Info */}
@@ -41,11 +41,11 @@ const Footer = () => {
                         <ul className="space-y-4">
                             <li className="flex items-center space-x-4 text-sm text-gray-300">
                                 <Phone size={18} className="text-medical-pink" />
-                                <span>+91 85994 48599</span>
+                                <a href="tel:9156060489" className="hover:text-medical-pink transition-colors">9156060489</a>
                             </li>
                             <li className="flex items-center space-x-4 text-sm text-gray-300">
                                 <Mail size={18} className="text-medical-pink" />
-                                <span>support@drgowd.com</span>
+                                <a href="mailto:dr.gowds5d@gmail.com" className="hover:text-medical-pink transition-colors">dr.gowds5d@gmail.com</a>
                             </li>
                         </ul>
                     </div>
@@ -54,10 +54,10 @@ const Footer = () => {
                     <div>
                         <h4 className="text-xl font-bold mb-8 text-medical-pink">Our Branches</h4>
                         <ul className="space-y-4 text-sm text-gray-300">
-                            <li className="flex items-center space-x-4"><MapPin size={16} className="text-medical-pink" /> <span>Gachibowli</span></li>
-                            <li className="flex items-center space-x-4"><MapPin size={16} className="text-medical-pink" /> <span>Madhapur</span></li>
-                            <li className="flex items-center space-x-4"><MapPin size={16} className="text-medical-pink" /> <span>Manikonda</span></li>
-                            <li className="flex items-center space-x-4"><MapPin size={16} className="text-medical-pink" /> <span>Banjara Hills</span></li>
+                            <li><a href="https://maps.app.goo.gl/BAzvLKa55TmVRj3t7" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:text-medical-pink transition-colors"><MapPin size={16} className="text-medical-pink" /> <span>Gachibowli</span></a></li>
+                            <li><a href="https://maps.app.goo.gl/8Nw2ZhmcWRfTXh4w9" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:text-medical-pink transition-colors"><MapPin size={16} className="text-medical-pink" /> <span>Madhapur</span></a></li>
+                            <li><a href="https://maps.app.goo.gl/cY5hUhcqjAunqJgXA" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:text-medical-pink transition-colors"><MapPin size={16} className="text-medical-pink" /> <span>Puppalaguda</span></a></li>
+                            <li><a href="https://maps.app.goo.gl/awBnPCdRHewwbsTZ7" target="_blank" rel="noopener noreferrer" className="flex items-center space-x-4 hover:text-medical-pink transition-colors"><MapPin size={16} className="text-medical-pink" /> <span>Koti</span></a></li>
                         </ul>
                     </div>
 
@@ -65,9 +65,45 @@ const Footer = () => {
                     <div>
                         <h4 className="text-xl font-bold mb-8 text-medical-pink">Quick Links</h4>
                         <ul className="space-y-4 text-sm text-gray-300">
-                            <li className="hover:text-medical-pink cursor-pointer">Home</li>
-                            <li className="hover:text-medical-pink cursor-pointer">Our Doctors</li>
-                            <li className="hover:text-medical-pink cursor-pointer">Treatments</li>
+                            <li>
+                                <Link
+                                    to="/"
+                                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                                    className="hover:text-medical-pink cursor-pointer transition-colors block"
+                                >
+                                    Home
+                                </Link>
+                            </li>
+                            <li>
+                                <a
+                                    href="#our-doctors"
+                                    onClick={(e) => {
+                                        const element = document.getElementById('our-doctors');
+                                        if (element) {
+                                            e.preventDefault();
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
+                                    className="hover:text-medical-pink cursor-pointer transition-colors block"
+                                >
+                                    Our Doctors
+                                </a>
+                            </li>
+                            <li>
+                                <Link
+                                    to="/#services"
+                                    onClick={(e) => {
+                                        const element = document.getElementById('services');
+                                        if (element) {
+                                            e.preventDefault();
+                                            element.scrollIntoView({ behavior: 'smooth' });
+                                        }
+                                    }}
+                                    className="hover:text-medical-pink cursor-pointer transition-colors block"
+                                >
+                                    Treatments
+                                </Link>
+                            </li>
                             <li
                                 onClick={openModal}
                                 className="hover:text-medical-pink cursor-pointer"

@@ -15,8 +15,8 @@ const serviceList = [
         id: "dental-implants",
         title: "Dental Implants",
         desc: "Fixed Single Tooth, Multiple Teeth and Full Mouth Dental Implants with advanced tech.",
-        color: "bg-rose-50",
-        accent: "text-rose-600",
+        color: "bg-pink-50",
+        accent: "text-pink-600",
         icon: ShieldCheck
     },
     {
@@ -39,7 +39,7 @@ const serviceList = [
 
 const FullServices = () => {
     return (
-        <section className="py-24 bg-gray-50">
+        <section id="services" className="py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-20">
                     <p className="text-medical-pink font-bold uppercase tracking-[0.3em] text-xs mb-4">Clinical Excellence</p>
