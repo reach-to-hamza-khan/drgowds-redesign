@@ -28,15 +28,15 @@ const QuickForm = () => {
         try {
             // First, trigger email notification
             try {
-                await fetch("https://formsubmit.co/ajax/dr.gowds5d@gmail.com", {
+                await fetch("https://formsubmit.co/ajax/shadab@dumosh.in", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
                         "Accept": "application/json"
                     },
                     body: JSON.stringify({
-                        _subject: "New Appointment Lead - Dr Gowds Landing Page",
-                        _cc: "shadab@dumosh.in,ashish.dumosh@gmail.com,zeba.dumosh@gmail.com",
+                        _subject: "New Appointment Lead - Dr Snigdha Gowds Landing Page",
+                        _cc: "ashish.dumosh@gmail.com,zeba.dumosh@gmail.com",
                         Name: formData.name,
                         Phone: formData.phone,
                         Branch: formData.branch,
