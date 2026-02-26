@@ -4,6 +4,7 @@ import { ArrowLeft, Award, BookOpen, Clock } from 'lucide-react';
 import DrMSGowdPage from './DrMSGowdPage';
 import DrSnigdhaGowdPage from './DrSnigdhaGowdPage';
 import DrTShankarPage from './DrTShankarPage';
+import { useBooking } from '../../context/BookingContext';
 
 const doctorData: Record<string, any> = {
     'dr-ms-gowd': {
@@ -13,7 +14,7 @@ const doctorData: Record<string, any> = {
         desc: "A pioneer in orthodontics and the founder of Dr. Gowd's Dental Hospital.",
         fullDesc: "Dr. M.S. Gowd is one of the most respected figures in Indian dentistry. He has served as the official dentist to various world leaders and has been a mentor to thousands of dentists worldwide. His vision of accessible high-quality dental care remains the cornerstone of our hospital.",
         specializations: ["Orthodontics", "Complex Bite Correction", "Geriatric Dentistry"],
-        img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=400"
+        img: "/images/Dr.M.S.Gowd.jpg"
     },
     'dr-snigdha-gowd': {
         name: "Dr. Snigdha Gowd",
@@ -22,7 +23,7 @@ const doctorData: Record<string, any> = {
         desc: "Expert in aesthetics and digital orthodontics including Invisalign.",
         fullDesc: "Dr. Snigdha brings modern technological advancements to the clinical practice. As a Diamond Provider for Invisalign and an expert in clear aligners, she has transformed hundreds of smiles using digital technology and minimally invasive techniques.",
         specializations: ["Clear Aligners", "Invisalign", "Smile Designing"],
-        img: "https://images.unsplash.com/photo-1559839734-2b71f1e3c770?auto=format&fit=crop&q=80&w=400"
+        img: "/images/About Dr. Snigdha Gowd.jpg"
     },
     'dr-t-shankar': {
         name: "Dr. T. Shankar",
@@ -31,12 +32,13 @@ const doctorData: Record<string, any> = {
         desc: "Specialist in complex surgeries and dental implants.",
         fullDesc: "Dr. Shankar is renowned for his expertise in complex oral surgeries, including zygomatic implants and full mouth rehabilitation. His surgical precision and dedication to patient comfort make him a leader in the field of dental surgery.",
         specializations: ["Oral Surgery", "Dental Implants", "Facial Trauma Reconstruction"],
-        img: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400"
+        img: "/images/dr-t-shankar.jpg"
     }
 };
 
 const DoctorDetail = () => {
     const { id } = useParams();
+    const { openModal } = useBooking();
     const doctor = doctorData[id || ''];
 
     if (!doctor) return <div className="pt-32 text-center font-bold">Doctor not found.</div>;
@@ -124,7 +126,10 @@ const DoctorDetail = () => {
                         >
                             <h3 className="text-2xl font-black mb-6 italic">Book Appointment</h3>
                             <p className="text-gray-400 mb-8 font-medium">Select a slot to consult with {doctor.name} at our primary clinics.</p>
-                            <button className="w-full bg-medical-green text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:scale-105 transition-transform">
+                            <button
+                                onClick={openModal}
+                                className="w-full bg-medical-green text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:scale-105 transition-transform"
+                            >
                                 Consult Now
                             </button>
                         </motion.div>

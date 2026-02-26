@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, CheckCircle2, MessageCircle } from 'lucide-react';
+import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import WhatsAppIcon from '../../components/WhatsAppIcon';
+import { useBooking } from '../../context/BookingContext';
 import { useEffect } from 'react';
 
 const DrTShankarPage = () => {
+    const { openModal } = useBooking();
     // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -45,27 +48,27 @@ const DrTShankarPage = () => {
                             </div>
 
                             <div className="flex flex-wrap gap-4 pt-6">
-                                <button className="bg-pink-purple-gradient text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-pink-500/30 hover:-translate-y-1 transition-all">
+                                <button
+                                    onClick={openModal}
+                                    className="bg-pink-purple-gradient text-white px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-pink-500/30 hover:-translate-y-1 transition-all"
+                                >
                                     Book Appointment
                                 </button>
-                                <button className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center w-12 h-12">
-                                    <MessageCircle size={24} fill="white" />
-                                </button>
+                                <a
+                                    href="https://wa.me/918065295050"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-green-500 text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all flex items-center justify-center w-12 h-12"
+                                >
+                                    <WhatsAppIcon size={24} />
+                                </a>
                             </div>
                         </div>
 
                         {/* Image Collage */}
-                        <div className="grid grid-cols-2 gap-4 h-[400px]">
+                        <div className="gap-4 h-[400px]">
                             <div className="col-span-1 h-full rounded-2xl overflow-hidden shadow-lg border-4 border-white">
-                                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400" alt="Prof. Dr. T. Shankar" className="w-full h-full object-cover" />
-                            </div>
-                            <div className="col-span-1 grid grid-rows-2 gap-4 h-full">
-                                <div className="rounded-2xl overflow-hidden shadow-lg border-4 border-white">
-                                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=400" alt="Clinic Treatment Area" className="w-full h-full object-cover" />
-                                </div>
-                                <div className="rounded-2xl overflow-hidden shadow-lg border-4 border-white">
-                                    <img src="https://images.unsplash.com/photo-1559839734-2b71f1e3c770?auto=format&fit=crop&q=80&w=400" alt="Partnership/Award" className="w-full h-full object-cover" />
-                                </div>
+                                <img src="/images/Prof. Dr. T. Shankar-hero.jpg" alt="Prof. Dr. T. Shankar" className="w-full h-full object-cover" />
                             </div>
                         </div>
                     </div>
@@ -77,7 +80,7 @@ const DrTShankarPage = () => {
                 <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                     <div className="bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col md:flex-row items-center">
                         <div className="w-full md:w-2/5 h-[400px] md:h-[500px]">
-                            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400" alt="Prof. Dr. T. Shankar Portrait" className="w-full h-full object-cover" />
+                            <img src="/images/About Prof. Dr. T. Shankar.jpg" alt="Prof. Dr. T. Shankar Portrait" className="w-full h-full object-cover" />
                         </div>
                         <div className="w-full md:w-3/5 p-10 md:p-14 space-y-6">
                             <h2 className="text-3xl md:text-4xl font-extrabold text-medical-pink">

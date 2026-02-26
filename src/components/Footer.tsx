@@ -1,6 +1,9 @@
 import { Phone, Mail, MapPin, Facebook, Instagram, Youtube, Twitter } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
+import { useBooking } from '../context/BookingContext';
 
 const Footer = () => {
+    const { openModal } = useBooking();
     return (
         <footer className="bg-medical-dark-purple text-white pt-20 pb-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -8,13 +11,15 @@ const Footer = () => {
                     {/* Brand */}
                     <div className="space-y-6">
                         <div className="flex flex-col">
-                            <span className="text-3xl font-bold italic leading-none">Dr. Gowd's</span>
-                            <span className="text-sm font-bold text-medical-pink tracking-widest mt-1">DENTAL HOSPITAL</span>
+                            <img src="/logo.webp" alt="Dr. Gowd's Dental Hospital" className="h-16 md:h-20 w-auto object-contain brightness-0 invert" />
                         </div>
                         <p className="text-sm text-gray-400 leading-relaxed font-medium">
                             Over 50 years of clinical excellence in dental care. Providing world-class treatments with advanced technology.
                         </p>
                         <div className="flex space-x-4">
+                            <a href="https://wa.me/918065295050" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
+                                <WhatsAppIcon size={18} />
+                            </a>
                             <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
                                 <Facebook size={18} />
                             </div>
@@ -63,7 +68,12 @@ const Footer = () => {
                             <li className="hover:text-medical-pink cursor-pointer">Home</li>
                             <li className="hover:text-medical-pink cursor-pointer">Our Doctors</li>
                             <li className="hover:text-medical-pink cursor-pointer">Treatments</li>
-                            <li className="hover:text-medical-pink cursor-pointer">Book Appointment</li>
+                            <li
+                                onClick={openModal}
+                                className="hover:text-medical-pink cursor-pointer"
+                            >
+                                Book Appointment
+                            </li>
                         </ul>
                     </div>
                 </div>

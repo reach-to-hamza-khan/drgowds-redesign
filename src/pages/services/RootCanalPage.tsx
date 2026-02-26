@@ -1,6 +1,8 @@
-import { CheckCircle, CheckCircle2, MessageCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
+import WhatsAppIcon from '../../components/WhatsAppIcon';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
+import { useBooking } from '../../context/BookingContext';
 import DoctorCards from '../../components/DoctorCards';
 import Branches from '../../components/Branches';
 import Testimonials from '../../components/Testimonials';
@@ -64,6 +66,8 @@ const RootCanalTable = () => {
 };
 
 const RootCanalPage = () => {
+    const { openModal } = useBooking();
+    // Scroll to top on mount
     // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -116,12 +120,20 @@ const RootCanalPage = () => {
                             </div>
 
                             <div className="flex flex-wrap gap-4 pt-6">
-                                <button className="bg-pink-purple-gradient text-white px-8 py-4 rounded-full font-black uppercase tracking-widest shadow-xl hover:shadow-pink-500/30 hover:-translate-y-1 transition-all">
+                                <button
+                                    onClick={openModal}
+                                    className="bg-pink-purple-gradient text-white px-8 py-4 rounded-full font-black uppercase tracking-widest shadow-xl hover:shadow-pink-500/30 hover:-translate-y-1 transition-all"
+                                >
                                     Book Free Appointment
                                 </button>
-                                <button className="bg-green-500 border-2 border-green-500 text-white p-3 rounded-full shadow-xl hover:bg-green-600 transition-all flex items-center justify-center w-14 h-14">
-                                    <MessageCircle size={32} fill="white" />
-                                </button>
+                                <a
+                                    href="https://wa.me/918065295050"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-green-500 border-2 border-green-500 text-white p-3 rounded-full shadow-xl hover:bg-green-600 transition-all flex items-center justify-center w-14 h-14"
+                                >
+                                    <WhatsAppIcon size={32} />
+                                </a>
                             </div>
                         </div>
 
@@ -163,44 +175,81 @@ const RootCanalPage = () => {
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-16 items-center">
-                        <motion.div
-                            initial={{ opacity: 0, x: -50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            className="space-y-6"
-                        >
-                            <div className="flex items-center space-x-4 bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                                <div className="bg-white p-2 rounded-full shadow-sm text-medical-pink">
-                                    <CheckCircle2 size={32} />
-                                </div>
-                                <span className="text-xl font-bold text-gray-700">What is Root Canal?</span>
-                            </div>
-                            <div className="flex items-center space-x-4 bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                                <div className="bg-white p-2 rounded-full shadow-sm text-medical-pink">
-                                    <CheckCircle2 size={32} />
-                                </div>
-                                <span className="text-xl font-bold text-gray-700">Why Root Canal?</span>
-                            </div>
-                            <div className="flex items-center space-x-4 bg-gray-50 p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-all">
-                                <div className="bg-white p-2 rounded-full shadow-sm text-medical-pink">
-                                    <CheckCircle2 size={32} />
-                                </div>
-                                <span className="text-xl font-bold text-gray-700">Types of Root Canal</span>
-                            </div>
-                        </motion.div>
+                        <div className="space-y-4">
+                            {[
+                                {
+                                    id: 1,
+                                    title: "What is Root Canal",
+                                    description: "A dental procedure to remove infected pulp, clean the tooth, and seal it to prevent further infection.",
+                                    image: "https://images.unsplash.com/photo-1606811841689-23dfddce3e95?auto=format&fit=crop&q=80&w=800"
+                                },
+                                {
+                                    id: 2,
+                                    title: "Why Root Canal",
+                                    description: "To relieve pain, eliminate infection, and save the natural tooth from extraction.",
+                                    image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=800"
+                                },
+                                {
+                                    id: 3,
+                                    title: "Types of Root Canal?",
+                                    description: "Types of canals: I) Single canal, II) Two merge, III) Two separate, IV) One splits, V) Canal bifurcates, VI) Merges and splits, VII) Divides, rejoins, divides, VIII) Three separate.",
+                                    image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=800"
+                                },
+                            ].map((tab, idx) => (
+                                <motion.div
+                                    key={tab.id}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: idx * 0.1 }}
+                                    className="group relative"
+                                >
+                                    <div className="flex flex-col bg-gray-50 p-6 rounded-[30px] border border-gray-100 shadow-sm hover:shadow-xl hover:bg-white hover:border-medical-pink/30 transition-all duration-500 cursor-pointer overflow-hidden">
+                                        <div className="flex items-center space-x-4 mb-2">
+                                            <div className="bg-white p-3 rounded-2xl shadow-sm text-medical-pink group-hover:bg-medical-pink group-hover:text-white transition-colors duration-500">
+                                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 21c-1.33 0-2.61-.314-3.52-1.012-.897-.687-1.48-1.748-1.48-3.138v-3.793l-1.928.964A2 2 0 0 1 2.293 13.13l.056-.112a10 10 0 0 1 1.258-2.673c1.196-1.84 2.846-3.082 4.606-3.693 1.056-.367 2.05-.28 2.825.106.772-.387 1.765-.473 2.825-.106 1.76.611 3.41 1.853 4.605 3.693a10 10 0 0 1 1.259 2.673l.056.113a2 2 0 0 1-2.78 2.891l-1.927-.964v3.793c0 1.39-.583 2.451-1.48 3.138C14.61 20.686 13.33 21 12 21Z" /><path d="M12 21v-4" /><path d="M7 14v4" /><path d="M17 14v4" /></svg>
+                                            </div>
+                                            <span className="text-xl font-black text-medical-purple transition-colors duration-500">{tab.title}</span>
+                                        </div>
 
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white bg-gray-100"
-                        >
-                            <img
-                                src="https://images.unsplash.com/photo-1598802586325-849b09477776?auto=format&fit=crop&q=80&w=800"
-                                alt="Dental Root Canal Anatomy Model"
-                                className="w-full h-[400px] object-cover"
-                            />
-                        </motion.div>
+                                        <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-in-out">
+                                            <div className="overflow-hidden">
+                                                <p className="text-gray-600 font-medium leading-relaxed pt-2 pl-14">
+                                                    {tab.description}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Desktop hover image sync - optional but we'll use a main image for simplicity or CSS hover */}
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        <div className="relative group">
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                                className="rounded-[40px] overflow-hidden shadow-2xl border-8 border-white bg-gray-100 h-[500px]"
+                            >
+                                <img
+                                    src="https://images.unsplash.com/photo-1598802586325-849b09477776?auto=format&fit=crop&q=80&w=800"
+                                    alt="Dental Root Canal Anatomy"
+                                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+                                />
+
+                                <div className="absolute inset-0 bg-gradient-to-t from-medical-purple/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                                <div className="absolute bottom-8 left-8 right-8 text-white translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
+                                    <p className="text-lg font-bold italic">Advanced Endodontic Care</p>
+                                    <p className="text-sm font-medium text-white/80">Saving teeth with precision and care.</p>
+                                </div>
+                            </motion.div>
+
+                            {/* Floating elements for premium look */}
+                            <div className="absolute -top-6 -right-6 w-24 h-24 bg-medical-pink/10 rounded-full blur-2xl -z-10 group-hover:bg-medical-pink/20 transition-all"></div>
+                            <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-medical-purple/10 rounded-full blur-3xl -z-10 group-hover:bg-medical-purple/20 transition-all"></div>
+                        </div>
                     </div>
                 </div>
             </section>

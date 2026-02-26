@@ -10,11 +10,14 @@ const faqs = [
 
 const FAQ = () => {
     return (
-        <section className="py-20 bg-gray-50">
+        <section className="py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-4xl font-black text-center text-medical-purple mb-16">
-                    Frequently Asked <span className="text-medical-pink">Questions</span>
-                </h2>
+                <div className="text-center mb-16">
+                    <p className="text-medical-pink font-bold uppercase tracking-[0.3em] text-xs mb-4">Common Queries</p>
+                    <h2 className="text-4xl md:text-6xl font-black text-medical-purple italic leading-tight">
+                        Frequently Asked <span className="text-medical-pink">Questions</span>
+                    </h2>
+                </div>
 
                 <div className="grid md:grid-cols-2 gap-4">
                     {faqs.map((q, i) => (

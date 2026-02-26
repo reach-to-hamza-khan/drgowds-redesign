@@ -42,9 +42,9 @@ const FullServices = () => {
         <section className="py-24 bg-gray-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center mb-20">
-                    <p className="text-gray-400 font-bold tracking-[0.3em] uppercase mb-4 text-xs">Clinical Excellence</p>
-                    <h2 className="text-4xl md:text-6xl font-black text-medical-purple italic">
-                        A Full Range of <span className="text-medical-pink underline decoration-medical-purple underline-offset-8">Dental Services</span>
+                    <p className="text-medical-pink font-bold uppercase tracking-[0.3em] text-xs mb-4">Clinical Excellence</p>
+                    <h2 className="text-4xl md:text-6xl font-black text-medical-purple italic leading-tight">
+                        A Full Range of <span className="text-medical-pink">Dental Services</span>
                     </h2>
                 </div>
 

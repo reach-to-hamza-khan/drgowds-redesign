@@ -1,14 +1,18 @@
-import { CheckCircle, MessageCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
+import { useBooking } from '../context/BookingContext';
 
 const Hero = () => {
+    const { openModal } = useBooking();
     return (
-        <section className="pt-32 pb-16 bg-gradient-to-br from-white to-pink-50">
+        <section className="py-24 bg-gradient-to-br from-white to-pink-50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Text Content */}
                     <div className="space-y-6">
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-medical-pink leading-tight">
-                            Best Dental Doctors in <span className="text-medical-purple italic">Hyderabad!</span>
+                        <p className="text-medical-pink font-bold uppercase tracking-[0.3em] text-xs mb-[-1rem]">Welcome to Dr. Gowd's</p>
+                        <h1 className="text-4xl md:text-6xl font-black text-medical-purple leading-tight italic">
+                            Best Dental <span className="text-medical-pink">Doctors in</span> Hyderabad!
                         </h1>
 
                         <div className="space-y-4">
@@ -31,12 +35,20 @@ const Hero = () => {
                         </div>
 
                         <div className="flex flex-wrap gap-4 pt-4">
-                            <button className="bg-medical-pink text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-pink-600 transition-all">
-                                Call: +91 85994 48599
+                            <button
+                                onClick={openModal}
+                                className="bg-medical-pink text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-pink-600 transition-all uppercase tracking-widest text-sm"
+                            >
+                                Book Appointment!
                             </button>
-                            <button className="bg-medical-green text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all">
-                                <MessageCircle size={32} fill="white" />
-                            </button>
+                            <a
+                                href="https://wa.me/918065295050"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="bg-medical-green text-white p-3 rounded-full shadow-lg hover:bg-green-600 transition-all"
+                            >
+                                <WhatsAppIcon size={32} />
+                            </a>
                         </div>
                     </div>
 
@@ -44,14 +56,10 @@ const Hero = () => {
                     <div className="relative">
                         <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                             <img
-                                src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&q=80&w=800"
-                                alt="Our Doctors"
+                                src="https://drgowds.com/wp-content/uploads/2024/12/WhatsApp-Image-2024-12-01-at-7.02.42-PM.jpeg"
+                                alt="Dr. Gowd's Dental Hospital"
                                 className="w-full h-auto object-cover"
                             />
-                        </div>
-                        {/* Small floating images as seen in the screenshot */}
-                        <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-lg border-2 border-white shadow-lg overflow-hidden hidden lg:block">
-                            <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?auto=format&fit=crop&q=80&w=200" alt="Clinic" className="w-full h-full object-cover" />
                         </div>
                     </div>
                 </div>

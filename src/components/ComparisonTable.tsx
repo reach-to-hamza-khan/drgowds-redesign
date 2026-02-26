@@ -15,9 +15,9 @@ const ComparisonTable = () => {
             <div className="absolute top-0 right-0 w-96 h-96 bg-medical-pink/5 rounded-full blur-[120px] -mr-48 -mt-48"></div>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
-                <p className="text-gray-400 font-bold tracking-[0.3em] uppercase mb-4 text-xs">The Excellence Factor</p>
-                <h2 className="text-4xl md:text-6xl font-black text-medical-purple mb-20 italic">
-                    Why Choose <span className="text-medical-pink underline decoration-medical-purple underline-offset-8">Dr. Gowd's Dental Hospital?</span>
+                <p className="text-medical-pink font-bold uppercase tracking-[0.3em] text-xs mb-4">The Excellence Factor</p>
+                <h2 className="text-4xl md:text-6xl font-black text-medical-purple mb-20 italic leading-tight">
+                    Why Choose <span className="text-medical-pink">Dr. Gowd's Dental Hospital?</span>
                 </h2>
 
                 <motion.div

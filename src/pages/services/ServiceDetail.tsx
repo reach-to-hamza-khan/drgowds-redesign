@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ChevronRight, ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { ArrowLeft, CheckCircle2 } from 'lucide-react';
+import { useBooking } from '../../context/BookingContext';
 import DentalImplantsPage from './DentalImplantsPage';
 import InvisalignersPage from './InvisalignersPage';
 import FullMouthRehabPage from './FullMouthRehabPage';
@@ -40,6 +41,7 @@ const serviceData: Record<string, any> = {
 
 const ServiceDetail = () => {
     const { id } = useParams();
+    const { openModal } = useBooking();
     const service = serviceData[id || ''];
 
     if (!service) return <div className="pt-32 text-center font-bold">Service not found.</div>;
@@ -99,7 +101,10 @@ const ServiceDetail = () => {
                             ))}
                         </div>
 
-                        <button className="bg-pink-purple-gradient text-white px-10 py-5 rounded-full font-black uppercase tracking-widest shadow-xl hover:scale-105 transition-transform">
+                        <button
+                            onClick={openModal}
+                            className="bg-pink-purple-gradient text-white px-10 py-5 rounded-full font-black uppercase tracking-widest shadow-xl hover:scale-105 transition-transform"
+                        >
                             Book Consultation Now
                         </button>
                     </motion.div>

@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { ChevronDown, Phone, MapPin, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useBooking } from '../context/BookingContext';
 
 const navigation = [
     { name: "Home", href: "/" },
@@ -30,17 +31,15 @@ const navigation = [
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+    const { openModal } = useBooking();
 
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20 md:h-24">
                     {/* Logo */}
-                    <Link to="/" className="flex-shrink-0 flex items-center group">
-                        <div className="flex flex-col">
-                            <span className="text-2xl md:text-3xl font-black text-medical-purple leading-none italic group-hover:text-medical-pink transition-colors">Dr. Gowd's</span>
-                            <span className="text-[10px] md:text-xs font-bold text-medical-pink tracking-[0.3em]">DENTAL HOSPITAL</span>
-                        </div>
+                    <Link to="/" className="flex-shrink-0 flex items-center">
+                        <img src="/logo.webp" alt="Dr. Gowd's Dental Hospital" className="h-12 md:h-16 w-auto object-contain" />
                     </Link>
 
                     {/* Desktop Navigation */}
@@ -91,7 +90,10 @@ const Navbar = () => {
                             <span className="text-[10px] uppercase font-bold text-gray-400">Call Support</span>
                             <a href="tel:+918599448599" className="text-medical-purple font-black text-lg">+91 85994 48599</a>
                         </div>
-                        <button className="bg-medical-green text-white px-8 py-4 rounded-full font-black uppercase tracking-wider shadow-lg shadow-green-200 hover:bg-opacity-90 transition-all hover:-translate-y-1 active:scale-95 text-sm">
+                        <button
+                            onClick={openModal}
+                            className="bg-medical-green text-white px-8 py-4 rounded-full font-black uppercase tracking-wider shadow-lg shadow-green-200 hover:bg-opacity-90 transition-all hover:-translate-y-1 active:scale-95 text-sm"
+                        >
                             Book Appointment
                         </button>
                     </div>
@@ -144,7 +146,13 @@ const Navbar = () => {
                                 </div>
                             ))}
                             <div className="pt-8 pt-4">
-                                <button className="w-full bg-medical-green text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl">
+                                <button
+                                    onClick={() => {
+                                        setIsOpen(false);
+                                        openModal();
+                                    }}
+                                    className="w-full bg-medical-green text-white py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl"
+                                >
                                     Quick Appointment
                                 </button>
                             </div>

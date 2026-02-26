@@ -1,6 +1,8 @@
-import { CheckCircle, CheckCircle2, MessageCircle } from 'lucide-react';
+import { CheckCircle, CheckCircle2 } from 'lucide-react';
+import WhatsAppIcon from '../../components/WhatsAppIcon';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
+import { useBooking } from '../../context/BookingContext';
 import DoctorCards from '../../components/DoctorCards';
 import Branches from '../../components/Branches';
 import Testimonials from '../../components/Testimonials';
@@ -64,6 +66,8 @@ const FullMouthRehabTable = () => {
 };
 
 const FullMouthRehabPage = () => {
+    const { openModal } = useBooking();
+    // Scroll to top on mount
     // Scroll to top on mount
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -117,12 +121,20 @@ const FullMouthRehabPage = () => {
                             </div>
 
                             <div className="flex flex-wrap gap-4 pt-6">
-                                <button className="bg-pink-purple-gradient text-white px-8 py-4 rounded-full font-black uppercase tracking-widest shadow-xl hover:shadow-pink-500/30 hover:-translate-y-1 transition-all">
+                                <button
+                                    onClick={openModal}
+                                    className="bg-pink-purple-gradient text-white px-8 py-4 rounded-full font-black uppercase tracking-widest shadow-xl hover:shadow-pink-500/30 hover:-translate-y-1 transition-all"
+                                >
                                     Book Free Appointment
                                 </button>
-                                <button className="bg-green-500 border-2 border-green-500 text-white p-3 rounded-full shadow-xl hover:bg-green-600 transition-all flex items-center justify-center w-14 h-14">
-                                    <MessageCircle size={32} fill="white" />
-                                </button>
+                                <a
+                                    href="https://wa.me/918065295050"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="bg-green-500 border-2 border-green-500 text-white p-3 rounded-full shadow-xl hover:bg-green-600 transition-all flex items-center justify-center w-14 h-14"
+                                >
+                                    <WhatsAppIcon size={32} />
+                                </a>
                             </div>
                         </div>
 
