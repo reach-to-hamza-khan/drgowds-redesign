@@ -40,7 +40,7 @@ const BookingModal: React.FC<BookingModalProps> = ({ isOpen, onClose }) => {
                     },
                     body: JSON.stringify({
                         _subject: "New Appointment Lead - Dr Gowds Landing Page",
-                        _cc: "shadab@dumosh.in,ashish.dumosh@gmail.com,zeba.pathan@gmail.com",
+                        _cc: "shadab@dumosh.in,ashish.dumosh@gmail.com,zeba.dumosh@gmail.com",
                         Name: formData.name,
                         Phone: formData.number,
                         Branch: formData.branch,
