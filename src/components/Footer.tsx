@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, MapPin } from 'lucide-react';
 import { useBooking } from '../context/BookingContext';
 import { Link } from 'react-router-dom';
 
@@ -14,25 +14,8 @@ const Footer = () => {
                             <img src="/logo.webp" alt="Dr. Gowd's Dental Hospital" className="h-16 md:h-20 w-auto object-contain brightness-0 invert" />
                         </div>
                         <p className="text-sm text-gray-400 leading-relaxed font-medium">
-                            Over 50 years of clinical excellence in dental care. Providing world-class treatments with advanced technology.
+                            Over 55 years of clinical excellence in dental care. Providing world-class treatments with advanced technology.
                         </p>
-                        {/* <div className="flex space-x-4">
-                            <a href="https://wa.me/9156060489" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
-                                <WhatsAppIcon size={18} />
-                            </a>
-                            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
-                                <Facebook size={18} />
-                            </div>
-                            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
-                                <Instagram size={18} />
-                            </div>
-                            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
-                                <Twitter size={18} />
-                            </div>
-                            <div className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-medical-pink transition-colors cursor-pointer">
-                                <Youtube size={18} />
-                            </div>
-                        </div> */}
                     </div>
 
                     {/* Contact Info */}
@@ -42,10 +25,6 @@ const Footer = () => {
                             <li className="flex items-center space-x-4 text-sm text-gray-300">
                                 <Phone size={18} className="text-medical-pink" />
                                 <a href="tel:9156060489" className="hover:text-medical-pink transition-colors">9156060489</a>
-                            </li>
-                            <li className="flex items-center space-x-4 text-sm text-gray-300">
-                                <Mail size={18} className="text-medical-pink" />
-                                <a href="mailto:dr.gowds5d@gmail.com" className="hover:text-medical-pink transition-colors">dr.gowds5d@gmail.com</a>
                             </li>
                         </ul>
                     </div>
@@ -114,8 +93,14 @@ const Footer = () => {
                     </div>
                 </div>
 
-                <div className="pt-10 border-t border-white/10 text-center text-sm text-gray-500 font-medium">
-                    <p>© 2024 Dr. Gowd's Dental Hospital. All Rights Reserved. Designed with ❤️</p>
+                <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row items-center justify-center text-sm text-gray-500 font-medium">
+                    <p>© 2026 Dr. Gowd's Dental Hospital. All Rights Reserved.</p>
+                    <div className="flex items-center space-x-2 mt-4 md:mt-0">
+                        <span>Partner with</span>
+                        <a href="https://www.dumosh.in/" target="_blank" rel="noopener noreferrer" className="inline-block">
+                            <img alt="Dumosh Logo" className="inline-block w-24 opacity-90 hover:opacity-100 transition-opacity bg-white px-2 py-1 rounded-md" src="/images/dlogowhite.png" />
+                        </a>
+                    </div>
                 </div>
             </div>
         </footer>

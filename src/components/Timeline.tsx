@@ -169,7 +169,7 @@ const Timeline = () => {
                         <div className="flex -space-x-3">
                             {[1, 2, 3].map(i => (
                                 <div key={i} className="w-12 h-12 rounded-full border-4 border-white bg-medical-purple flex items-center justify-center text-white font-bold text-xs">
-                                    {50 + i}+
+                                    {52 + i}+
                                 </div>
                             ))}
                         </div>

@@ -91,7 +91,7 @@ const Testimonials = () => {
                                     onClick={() => setActiveVideo(video.youtubeId)}
                                 >
                                     <img
-                                        src={`https://img.youtube.com/vi/${video.youtubeId}/maxresdefault.jpg`}
+                                        src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
                                         alt={video.title}
                                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                     />
@@ -131,13 +131,6 @@ const Testimonials = () => {
                             </div>
                         </motion.div>
                     ))}
-                </div>
-
-                {/* Final Callout */}
-                <div className="mt-20 text-center">
-                    <button className="bg-medical-dark-purple text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest shadow-xl hover:bg-medical-pink transition-all active:scale-95">
-                        View All Patient Stories
-                    </button>
                 </div>
             </div>
 

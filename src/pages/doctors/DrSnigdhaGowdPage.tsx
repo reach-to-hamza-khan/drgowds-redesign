@@ -300,7 +300,7 @@ const DrSnigdhaGowdPage = () => {
                                 >
                                     <WhatsAppIcon size={16} />
                                 </a>
-                                <span className="font-bold hidden sm:inline">08069295060</span>
+                                <span className="font-bold hidden sm:inline">9156060489</span>
                             </div>
                         </div>
 
@@ -327,7 +327,6 @@ const DrSnigdhaGowdPage = () => {
                             <h4 className="font-bold text-gray-800 mb-4">Contact Info</h4>
                             <div className="space-y-2">
                                 <a href="tel:9156060489" className="text-sm text-gray-500 flex items-center gap-2 hover:text-medical-pink transition-colors">📞 9156060489</a>
-                                <a href="mailto:dr.gowds15di@gmail.com" className="text-sm text-gray-500 flex items-center gap-2 hover:text-medical-pink transition-colors">✉️ dr.gowds15di@gmail.com</a>
                             </div>
                         </div>
                         <div>

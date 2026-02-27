@@ -25,7 +25,7 @@ const Hero = ({ title }: HeroProps) => {
                         <div className="space-y-4">
                             <div className="flex items-center space-x-3">
                                 <CheckCircle className="text-medical-purple w-5 h-5" />
-                                <span className="text-gray-700 font-medium font-semibold italic">55+ Years of combined experience</span>
+                                <span className="text-gray-700 font-medium font-semibold italic">55+ Years of Legacy</span>
                             </div>
                             <div className="flex items-center space-x-3">
                                 <CheckCircle className="text-medical-purple w-5 h-5" />

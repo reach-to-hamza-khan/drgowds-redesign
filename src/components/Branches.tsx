@@ -7,42 +7,38 @@ const clinicLocations = [
     {
         id: 1,
         branch: "Gachibowli",
-        phone: "08065295030",
+        phone: "9156060489",
         address: "Fantasy Square, T9/T8, 3rd Floor, Plot No. 1 & 2, Gachibowli Rd, Hyderabad, 500032",
         mapLink: "https://maps.app.goo.gl/BAzvLKa55TmVRj3t7",
         image: "https://drgowds.com/wp-content/uploads/2024/12/Screenshot-2024-12-01-202638.png",
         timing: "10 AM - 8 PM",
-        tag: "Luxury Hub"
     },
     {
         id: 2,
         branch: "Madhapur",
-        phone: "08065295040",
+        phone: "9156060489",
         address: "S.B.R’s C.V Towers, Flat No. 402, Above Karachi Bakery, Hi-tech City, Madhapur, 500081",
         mapLink: "https://maps.app.goo.gl/8Nw2ZhmcWRfTXh4w9",
         image: "https://drgowds.com/wp-content/uploads/2024/12/Screenshot-2024-12-01-203036.png",
         timing: "10 AM - 9 PM",
-        tag: "Tech Center"
     },
     {
         id: 3,
         branch: "Nanakramguda",
-        phone: "08065295055",
+        phone: "9156060489",
         address: "Nanakaramguda Toll Booth, Nehru Outer Ring Rd, Khajaguda, Hyderabad, 500075",
         mapLink: "https://maps.app.goo.gl/cY5hUhcqjAunqJgXA",
         image: "https://drgowds.com/wp-content/uploads/2024/12/Screenshot-2024-12-01-203405.png",
         timing: "9 AM - 8 PM",
-        tag: "Premium Unit"
     },
     {
         id: 4,
         branch: "Koti",
-        phone: "08065295044",
+        phone: "9156060489",
         address: "Opp Clock Tower, Sultan Bazar, Koti, Hyderabad, 500095",
         mapLink: "https://maps.app.goo.gl/JogyUZEF176n9XEx5",
         image: "https://drgowds.com/wp-content/uploads/2024/12/Screenshot-2024-12-01-203551.png",
         timing: "10 AM - 7 PM",
-        tag: "Heritage Care"
     }
 ];
 
@@ -97,7 +93,6 @@ const Branches = () => {
                                                     <span className="bg-medical-pink/10 text-medical-pink text-[10px] font-black uppercase px-2 py-0.5 rounded-full">Active</span>
                                                 )}
                                             </div>
-                                            <p className="text-gray-400 text-sm font-bold uppercase tracking-widest">{loc.tag}</p>
                                         </div>
                                     </div>
                                     <div className={`transition-all duration-500 ${selectedBranch.id === loc.id ? 'opacity-100' : 'opacity-0'}`}>
